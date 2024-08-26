@@ -41,7 +41,6 @@ import { getSchemaData } from "./schemaUtils";
  */
 export async function generatePieChartData(bqId, queryString) {
   let bqApiData;
-
   if (!bqId && !queryString) {
     bqApiData = await getSchemaData(import.meta.env.VITE_TEST_SCHEMA);
   }
