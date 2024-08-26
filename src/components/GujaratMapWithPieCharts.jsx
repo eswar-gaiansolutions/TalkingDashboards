@@ -97,3 +97,4 @@ const GujaratMapWithPieCharts = () => {
 };
 
 export default GujaratMapWithPieCharts;
+
