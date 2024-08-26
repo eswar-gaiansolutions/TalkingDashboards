@@ -1,13 +1,15 @@
-// import './App.css'
-import GujaratMapWithPieCharts from "./components/GujaratMapWithPieCharts"
+import React from "react";
+import './App.css'
+import ChartsDashboard from "./components/ChartsDashboard/ChartsDashboard";
+
 
 function App() {
 
   return (
-    <>
-      <GujaratMapWithPieCharts />
-    </>
-  )
+    <div className="rootContainer">
+      <ChartsDashboard />
+    </div>
+  );
 }
 
 export default App

@@ -84,15 +84,16 @@ const GujaratMapWithPieCharts = () => {
   }, []);
 
   return (
-    <div style={{ display: 'flex', height: '100vh' }}>
-      <div
-        ref={chartRef}
-        style={{
-          width: '50vw', // Occupy the first quadrant (half of the width)
-          height: '50vh', // Occupy the first quadrant (half of the height)
-        }}
-      />
-    </div>
+    // <div style={{ display: 'flex', height: '100vh' }}>
+
+    // </div>
+    <div
+      ref={chartRef}
+      style={{
+        width: "50vw",
+        height: "50vh",
+      }}
+    />
   );
 };
 
