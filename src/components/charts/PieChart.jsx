@@ -12,6 +12,7 @@ const PieChart = () => {
 			trigger: "item",
 		},
 		legend: {
+			show: false,
 			orient: "vertical",
 			left: "left",
 		},
@@ -39,7 +40,10 @@ const PieChart = () => {
 	};
 
 	return (
-		<ReactECharts option={option} style={{ height: 400, width: "100%" }} />
+		<ReactECharts
+			option={option}
+			style={{ height: "100%", width: "100%" }}
+		/>
 	);
 };
 
