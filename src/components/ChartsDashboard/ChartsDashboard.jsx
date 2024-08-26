@@ -6,6 +6,7 @@ import "./ChartsDashboard.css";
 import LineChart from "../LineChart/LineChart";
 import StackedBarChart from "../StackedBarChart";
 import MapParentContainer from "../map/MapParentContainer";
+import AppsRevenuePerDistrict from "../AppsRevenuePerDistrict/AppsRevenuePerDistrict";
 
 const ChartsDashboard = () => {
 	const [data, setData] = useState([]);
@@ -23,8 +24,8 @@ const ChartsDashboard = () => {
 				<MapParentContainer />
 			</div>
 			<div className="dashboardItemquad2">
-				//Here add the pie chart
-				<LineChart data={transformedData} />
+				{/* <AppsRevenuePerDistrict bqId="66cc4e1f5e912f0da602e65f"/> */}
+                <AppsRevenuePerDistrict queryString="SELECT * from t_66cc2957f604240f964044bf_t" />
 			</div>
 			<div className="dashboardItemquad3">
 				<LineChart data={transformedData} />
