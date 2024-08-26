@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { transformDataForLineChart } from "../../utils/dataTransformer";
 import testData from "../../data/testData.json";
-import "./ChartsDashboard.css"; 
+import "./ChartsDashboard.css";
 import GujaratMapWithPieCharts from "../GujaratMapWithPieCharts";
 import LineChart from "../LineChart/LineChart";
+import StackedBarChart from "../StackedBarChart";
 
 const ChartsDashboard = () => {
   const [data, setData] = useState([]);
@@ -17,11 +18,18 @@ const ChartsDashboard = () => {
 
   return (
     <div className="dashboardContainer">
-      <div className="dashboardItem1">
+      <div className="dashboardItemquad1">
         <GujaratMapWithPieCharts />
       </div>
-      <div className="dashboardItem2">
+      <div className="dashboardItemquad2">
+        //Here add the pie chart
         <LineChart data={transformedData} />
+      </div>
+      <div className="dashboardItemquad3">
+        <LineChart data={transformedData} />
+      </div>
+      <div className="dashboardItemquad4">
+        <StackedBarChart />
       </div>
     </div>
   );
