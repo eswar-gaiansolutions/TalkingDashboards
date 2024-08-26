@@ -1,0 +1,25 @@
+.dashboardContainer {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Two columns */
+  grid-template-rows: 1fr 1fr;    /* Two rows */
+  gap: 5px;                      
+}
+
+.dashboardItemquad1 {
+  grid-column: 1 / 2; /* Start at column 1, span 1 column */
+  grid-row: 1 / 2;    /* Start at row 1, span 1 row */
+}
+
+.dashboardItemquad2 {
+  grid-column: 2 / 3; /* Start at column 1, span 1 column */
+  grid-row: 1 / 2;    /* Start at row 2, span 1 row */
+}
+.dashboardItemquad3 {
+  grid-column: 2 / 3; /* Start at column 1, span 1 column */
+  grid-row: 2 / 3;    /* Start at row 2, span 1 row */
+}
+.dashboardItemquad4 {
+  grid-column: 1 / 2; /* Start at column 1, span 1 column */
+  grid-row: 2 / 3;    /* Start at row 2, span 1 row */
+}
