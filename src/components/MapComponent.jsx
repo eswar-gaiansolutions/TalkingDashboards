@@ -1,6 +1,10 @@
 import React, { useEffect, useRef } from "react";
-import { TileLayer, GeoJSON, Marker, useMap } from "react-leaflet";
+import { TileLayer, GeoJSON, useMap } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
+import L from "leaflet";
+import ReactDOMServer from "react-dom/server";
+import PieChart from "./charts/PieChart";
+import { calculateGeoJsonCenter } from "../lib/utils";
 
 const MapComponent = ({ center, geoJsonData }) => {
 	const map = useMap();
@@ -13,8 +17,30 @@ const MapComponent = ({ center, geoJsonData }) => {
 	}, [center, map]);
 
 	const onEachFeature = (feature, layer) => {
-		if (feature.properties && feature.properties.name) {
-			layer.bindPopup(feature.properties.name);
+		if (feature.properties && feature.properties.dtname) {
+			layer.bindPopup(feature.properties.dtname);
+
+			// Render the PieChart component to a static HTML string
+			const pieChartHtml = ReactDOMServer.renderToString(<PieChart />);
+
+			// Create a divIcon with the PieChart HTML
+			const pieChartMarker = L.divIcon({
+				className: "custom-div-icon",
+				html: `<div style="width: 100px; height: 100px;">${pieChartHtml}</div>`,
+				iconSize: [100, 100],
+				iconAnchor: [50, 50],
+			});
+
+			// Calculate the center of the GeoJSON feature
+			const center = calculateGeoJsonCenter(feature);
+
+			if (center) {
+				const coordinates = center;
+				const latLng = L.latLng(coordinates[0], coordinates[1]);
+
+				// Add the PieChart marker to the map at the calculated center
+				L.marker(latLng, { icon: pieChartMarker }).addTo(map);
+			}
 		}
 	};
 
